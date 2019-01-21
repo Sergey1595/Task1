@@ -22,4 +22,8 @@ public class WebDriverWaitLogged {
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public void waitForTextToBePresentInElement(String text ,WebElement element){
+        wait.until(ExpectedConditions.textToBePresentInElementValue(element, text));
+    }
 }

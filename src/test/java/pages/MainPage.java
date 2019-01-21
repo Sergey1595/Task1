@@ -4,20 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilities.logged.WebDriverWaitLogged;
+import ru.yandex.qatools.allure.annotations.Step;
+import utilities.Properties;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MainPage extends BasePage {
     WebDriver driver = null;
-    WebDriverWaitLogged wait = null;
     public MainPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
 
-        wait = new WebDriverWaitLogged(driver);
     }
 
     @FindBy (className = "expand-more _gray-darker hidden-sm-down")
@@ -35,23 +33,34 @@ public class MainPage extends BasePage {
     @FindBy (xpath = "//button/i[@class='material-icons search']")
     private WebElement searchButton;
 
+    @Step("Open main page")
+    public MainPage open(){
+        open(Properties.getBaseUrl());
+        return this;
+    }
+
+    @Step("Set currence - dollar")
     public void setDollarCurrence(){
         сurrencyButton.click();
-        wait.waitForElementToBeClickable(setDollarCurrenceButton);
+        driverWait.waitForElementToBeClickable(setDollarCurrenceButton);
         setDollarCurrenceButton.click();
     }
 
+
+    @Step("Get currence of all products")
     public List<String> getCurrenceOfProducts(){
         List<String> currenceOfProducts = new LinkedList<>();
         for(int i = 0; i < pricesOfProducts.size(); i++){
-            currenceOfProducts.add(pricesOfProducts.get(1).getText());
+            currenceOfProducts.add(pricesOfProducts.get(i).getText());
         }
         return currenceOfProducts;
     }
 
+    @Step("Search products by name")
     public void searchProducts(String nameOfProduct){
         searchField.sendKeys(nameOfProduct);
-        //wait need here
+        driverWait.waitForTextToBePresentInElement(nameOfProduct, searchField);
         searchButton.click();
+
     }
 }
