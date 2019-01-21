@@ -29,6 +29,11 @@ public class MainPage extends BasePage {
     @FindBy (xpath = "//a[@title='Доллар США']")
     private WebElement setDollarCurrenceButton;
 
+    @FindBy (name = "s")
+    private WebElement searchField;
+
+    @FindBy (xpath = "//button/i[@class='material-icons search']")
+    private WebElement searchButton;
 
     public void setDollarCurrence(){
         сurrencyButton.click();
@@ -42,5 +47,11 @@ public class MainPage extends BasePage {
             currenceOfProducts.add(pricesOfProducts.get(1).getText());
         }
         return currenceOfProducts;
+    }
+
+    public void searchProducts(String nameOfProduct){
+        searchField.sendKeys(nameOfProduct);
+        //wait need here
+        searchButton.click();
     }
 }
