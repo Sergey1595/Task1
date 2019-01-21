@@ -1,0 +1,23 @@
+<suite name="Products Management" verbose="1" >
+    <test name="Create New Product [Chrome]" >
+        <classes>
+            <class name="java.tests." />
+            <parameter name="browser" value="chrome"/>
+        </classes>
+    </test>
+
+    <test name="Create New Product [Firefox]" >
+        <classes>
+            <class name="java.tests." />
+            <parameter name="browser" value="firefox"/>
+        </classes>
+    </test>
+
+    <test name="Create New Product [internet explorer]" >
+        <classes>
+            <class name="java.tests." />
+            <parameter name="browser" value="internet explorer"/>
+        </classes>
+    </test>
+
+</suite>
