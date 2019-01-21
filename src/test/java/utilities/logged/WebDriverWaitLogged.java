@@ -1,4 +1,4 @@
-package utilities.pages;
+package utilities.logged;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

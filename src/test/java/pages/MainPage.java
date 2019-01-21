@@ -2,10 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MainPage {
-    WebDriver driver;
+public class MainPage extends BasePage {
+    WebDriver driver = null;
 
 
 
-    
+
 }
