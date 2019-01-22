@@ -7,7 +7,7 @@ import utilities.logging.AllureTestListener;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners({AllureTestListener.class})
+//@Listeners({AllureTestListener.class})
 public abstract class BaseTest {
     public static WebDriver driver = null;
 
@@ -20,7 +20,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 
-    //@AfterClass
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();

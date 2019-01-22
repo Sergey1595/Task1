@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MainPage extends BasePage {
 
-    @FindBy (className = "expand-more _gray-darker hidden-sm-down")
+    @FindBy (xpath = "//span[@class='expand-more _gray-darker hidden-sm-down']")
     private WebElement сurrencyButton;
 
     @FindBy (xpath = "//span[@class='price']")
@@ -25,26 +25,26 @@ public class MainPage extends BasePage {
     @FindBy (xpath = "//button/i[@class='material-icons search']")
     private WebElement searchButton;
 
-    @Step("Open main page")
+    //@Step("Open main page")
     public MainPage open(){
         open(Properties.getBaseUrl());
         return this;
     }
 
-    @Step("Set currence - dollar")
+    //@Step("Set currence - dollar")
     public void setDollarCurrence(){
         сurrencyButton.click();
         driverWait.waitForElementToBeClickable(setDollarCurrenceButton);
         setDollarCurrenceButton.click();
     }
 
-    @Step("Get currence of page setting")
+    //@Step("Get currence of page setting")
     public String getCurrenceOfPageSetting(){
         return сurrencyButton.getText();
     }
 
 
-    @Step("Get currence of all products")
+    //@Step("Get currence of all products")
     public List<String> getCurrenceOfProducts(){
         List<String> currenceOfProducts = new LinkedList<>();
         for(int i = 0; i < pricesOfProducts.size(); i++){
@@ -53,7 +53,7 @@ public class MainPage extends BasePage {
         return currenceOfProducts;
     }
 
-    @Step("Search products by name")
+    //@Step("Search products by name")
     public void searchProducts(String nameOfProduct){
         searchField.sendKeys(nameOfProduct);
         driverWait.waitForTextToBePresentInElement(nameOfProduct, searchField);
