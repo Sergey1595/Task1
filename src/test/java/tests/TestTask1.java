@@ -21,5 +21,13 @@ public class TestTask1 extends BaseTest{
         }
     }
 
+    @Test
+    void checkResultOfSearch(){
+        MainPage mainPage = new MainPage().open();
+
+        mainPage.setDollarCurrence();
+
+        mainPage.searchProducts("dress");
+    }
 
 }

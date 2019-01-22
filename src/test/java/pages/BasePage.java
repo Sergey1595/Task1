@@ -20,12 +20,12 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    //@Step
+    @Step
     protected void open(String url) {
         driver.navigate().to(url);
     }
 
-    //@Step
+    @Step
     protected void scrollPageDown() {
         jsExecutor.executeScript("window.scrollBy(0,document.documentElement.scrollHeight)");
     }
