@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MainPage extends BasePage {
-    WebDriver driver = null;
+    WebDriver driver;
     public MainPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;

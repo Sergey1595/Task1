@@ -1,21 +1,21 @@
 <suite name="Products Management" verbose="1" >
-    <test name="Create New Product [Chrome]" >
+    <test name="Task1 [Chrome]" >
         <classes>
-            <class name="java.tests." />
+            <class name="tests.TestTask1" />
             <parameter name="browser" value="chrome"/>
         </classes>
     </test>
 
-    <test name="Create New Product [Firefox]" >
+    <test name="Task1 [Firefox]" >
         <classes>
-            <class name="java.tests." />
+            <class name="tests.TestTask1" />
             <parameter name="browser" value="firefox"/>
         </classes>
     </test>
 
-    <test name="Create New Product [internet explorer]" >
+    <test name="Task1 [internet explorer]" >
         <classes>
-            <class name="java.tests." />
+            <class name="tests.TestTask1" />
             <parameter name="browser" value="internet explorer"/>
         </classes>
     </test>
