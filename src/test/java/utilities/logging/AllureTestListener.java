@@ -1,6 +1,6 @@
 package utilities.logging;
 
-import io.qameta.allure.Attachment;
+import ru.yandex.qatools.allure.annotations.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
@@ -22,7 +22,6 @@ public class AllureTestListener extends TestListenerAdapter {
         } catch (Exception e) {
             fail(e);
         }
-
         return screenshotAs;
     }
 

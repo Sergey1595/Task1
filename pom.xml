@@ -16,10 +16,10 @@
         <aspectj.version>1.8.7</aspectj.version>
         <allure.version>1.5.3</allure.version>
         <htmlelement.version>1.17</htmlelement.version>
+        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
     </properties>
 
     <build>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -34,17 +34,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <properties>
-                        <property>
-                            <name>delegateCommandSystemProperties</name>
-                            <value>true</value>
-                        </property>
-                        <property>
-                            <name>haltOnfailure</name>
-                            <value>false</value>
-                        </property>
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -55,14 +47,6 @@
                             <name>allure.results.directory</name>
                             <value>${project.build.directory}/allure-results</value>
                         </property>
-                        <!--<property>-->
-                        <!--<name>allure.link.issue.pattern</name>-->
-                        <!--<value>${issues.tracker}</value>-->
-                        <!--</property>-->
-                        <!--<property>-->
-                        <!--<name>allure.link.tms.pattern</name>-->
-                        <!--<value>${tms}</value>-->
-                        <!--</property>-->
                     </systemProperties>
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.build.testOutputDirectory}/testng.xml</suiteXmlFile>
@@ -90,16 +74,23 @@
     </reporting>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven-surefire-plugin.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.8.1</version>
+            <version>${selenium.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.13.1</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -122,16 +113,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.uncommons</groupId>
-            <artifactId>reportng</artifactId>
-            <version>1.1.4</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.testng</groupId>
-                    <artifactId>testng</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-maven-plugin</artifactId>
+            <version>2.5</version>
         </dependency>
 
         <dependency>
@@ -141,30 +125,10 @@
         </dependency>
 
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.0-BETA14</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.21</version>
+            <version>1.8.0-beta2</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-maven-plugin</artifactId>
-            <version>2.5</version>
         </dependency>
 
     </dependencies>

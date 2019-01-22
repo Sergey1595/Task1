@@ -12,11 +12,6 @@ import java.util.List;
 
 public class MainPage extends BasePage {
     WebDriver driver;
-    public MainPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-
-    }
 
     @FindBy (className = "expand-more _gray-darker hidden-sm-down")
     private WebElement сurrencyButton;

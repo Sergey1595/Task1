@@ -1,4 +1,6 @@
-<suite name="Products Management" verbose="1" >
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test of products" verbose="1" >
     <test name="Task1 [Chrome]" >
         <classes>
             <class name="tests.TestTask1" />
@@ -6,18 +8,17 @@
         </classes>
     </test>
 
-    <test name="Task1 [Firefox]" >
-        <classes>
-            <class name="tests.TestTask1" />
-            <parameter name="browser" value="firefox"/>
-        </classes>
-    </test>
+    <!--<test name="Task1 [Firefox]" >-->
+        <!--<classes>-->
+            <!--<class name="tests.TestTask1" />-->
+            <!--<parameter name="browser" value="firefox"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="Task1 [internet explorer]" >
-        <classes>
-            <class name="tests.TestTask1" />
-            <parameter name="browser" value="internet explorer"/>
-        </classes>
-    </test>
-
+    <!--<test name="Task1 [internet explorer]" >-->
+        <!--<classes>-->
+            <!--<class name="tests.TestTask1" />-->
+            <!--<parameter name="browser" value="internet explorer"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>
