@@ -8,5 +8,9 @@ public class TestTask1 extends BaseTest{
     @Test
     void compareCurrencyOfProducts(){
         MainPage mainPage = new MainPage().open();
+
+        String currenceOfPageSetting = mainPage.getCurrenceOfPageSetting();
+
+        System.out.println(currenceOfPageSetting);
     }
 }

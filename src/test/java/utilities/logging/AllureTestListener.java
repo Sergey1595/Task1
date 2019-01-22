@@ -1,6 +1,7 @@
 package utilities.logging;
 
-import ru.yandex.qatools.allure.annotations.Attachment;
+
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;

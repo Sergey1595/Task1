@@ -2,8 +2,9 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import ru.yandex.qatools.allure.testng.AllureTestListener;
 import utilities.DriverFactory;
+import utilities.logging.AllureTestListener;
+
 import java.util.concurrent.TimeUnit;
 
 @Listeners({AllureTestListener.class})
@@ -19,7 +20,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 
-    @AfterClass
+    //@AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();

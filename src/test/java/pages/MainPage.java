@@ -1,17 +1,14 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.allure.annotations.Step;
 import utilities.Properties;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class MainPage extends BasePage {
-    WebDriver driver;
 
     @FindBy (className = "expand-more _gray-darker hidden-sm-down")
     private WebElement сurrencyButton;
@@ -39,6 +36,11 @@ public class MainPage extends BasePage {
         сurrencyButton.click();
         driverWait.waitForElementToBeClickable(setDollarCurrenceButton);
         setDollarCurrenceButton.click();
+    }
+
+    @Step("Get currence of page setting")
+    public String getCurrenceOfPageSetting(){
+        return сurrencyButton.getText();
     }
 
 
