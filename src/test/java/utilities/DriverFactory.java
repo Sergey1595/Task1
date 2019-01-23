@@ -6,10 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-
 import java.io.File;
-import java.net.URL;
+
 public class DriverFactory {
     public static WebDriver initDriver(String browser) {
         DesiredCapabilities capabilities;

@@ -29,4 +29,13 @@ public class WebDriverWaitLogged {
     public void waitForElementVisibility(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    public void waitForElementAtributeToBe(WebElement element, String atribute, String valueOfAtribute){
+        wait.until(ExpectedConditions.attributeToBe(element, atribute, valueOfAtribute));
+    }
+
+    public void waitForUrlContain(String str){
+        wait.until(ExpectedConditions.urlContains(str));
+    }
+
 }

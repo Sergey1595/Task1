@@ -1,19 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Test of products" verbose="1" >
     <test name="Task1 [Chrome]" >
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TestTask1" />
-            <parameter name="browser" value="chrome"/>
+            <class name="tests.BaseTest" />
         </classes>
     </test>
 
-    <!--<test name="Task1 [Firefox]" >-->
-        <!--<classes>-->
-            <!--<class name="tests.TestTask1" />-->
-            <!--<parameter name="browser" value="firefox"/>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Task1 [Firefox]" >
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.TestTask1" />
+            <class name="tests.BaseTest" />
+        </classes>
+    </test>
 
     <!--<test name="Task1 [internet explorer]" >-->
         <!--<classes>-->

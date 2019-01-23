@@ -15,7 +15,7 @@ public class MainPage extends BasePage {
     @FindBy (xpath = "//span[@class='price']")
     private List<WebElement> pricesOfProducts;
 
-    @FindBy (xpath = "//a[@title='Доллар США']")
+    @FindBy (xpath = "//li/a[.='USD $']")
     private WebElement setDollarCurrenceButton;
 
     @FindBy (name = "s")

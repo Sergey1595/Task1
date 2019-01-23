@@ -13,8 +13,8 @@ public abstract class BaseTest {
     public static WebDriver driver = null;
 
     @BeforeClass
-    @Parameters({"selenium.browser"})
-    public void setUp(@Optional("chrome") String browser) {
+    @Parameters("browser")
+    public void setUp(@Optional("chrome")String browser) {
         driver = DriverFactory.initDriver(browser);
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
