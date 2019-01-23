@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MainPage extends BasePage {
-
     @FindBy (xpath = "//span[@class='expand-more _gray-darker hidden-sm-down']")
     private WebElement сurrencyButton;
 
@@ -25,12 +24,6 @@ public class MainPage extends BasePage {
     @FindBy (xpath = "//button/i[@class='material-icons search']")
     private WebElement searchButton;
 
-    @Step("Open main page")
-    public MainPage open(){
-        open(Properties.getBaseUrl());
-        return this;
-    }
-
     @Step("Set currence - dollar")
     public void setDollarCurrence(){
         сurrencyButton.click();
@@ -40,16 +33,15 @@ public class MainPage extends BasePage {
 
     @Step("Get currence of page setting")
     public String getCurrenceOfPageSetting(){
-        return сurrencyButton.getText();
+        return сurrencyButton.getText().substring(4);
     }
 
 
     @Step("Get currence of all products")
     public List<String> getCurrenceOfProducts(){
         List<String> currenceOfProducts = new LinkedList<>();
-        for(int i = 0; i < pricesOfProducts.size(); i++){
-            currenceOfProducts.add(pricesOfProducts.get(i).getText());
-        }
+        for(int i = 0; i < pricesOfProducts.size(); i++)
+            currenceOfProducts.add(pricesOfProducts.get(i).getText().replaceAll("[0-9, ]", ""));
         return currenceOfProducts;
     }
 

@@ -1,4 +1,4 @@
-package utilities.logged;
+package utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,12 +18,15 @@ public class WebDriverWaitLogged {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void waitForTextToBePresentInElement(String text ,WebElement element){
         wait.until(ExpectedConditions.textToBePresentInElementValue(element, text));
+    }
+
+    public void waitForElementVisibility(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

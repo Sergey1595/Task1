@@ -3,8 +3,8 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import utilities.logged.JavascriptExecutorLogged;
-import utilities.logged.WebDriverWaitLogged;
+import utilities.JavascriptExecutorLogged;
+import utilities.WebDriverWaitLogged;
 import tests.BaseTest;
 
 
