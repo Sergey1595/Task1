@@ -13,9 +13,15 @@ public abstract class BaseTest {
     public static WebDriver driver = null;
 
     @BeforeClass
-    @Parameters("browser")
-    public void setUp(@Optional("chrome")String browser) {
-        driver = DriverFactory.initDriver(browser);
+    @Parameters({"selenium.browser", "selenium.grid"})
+    public void setUp(@Optional("chrome")String browser, @Optional("") String gridUrl) {
+
+        if(gridUrl.equalsIgnoreCase("")){
+            driver = DriverFactory.initDriver(browser);
+        }
+        else{
+            driver = DriverFactory.initDriver(browser, gridUrl);
+        }
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
