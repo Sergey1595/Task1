@@ -22,10 +22,11 @@ public class DriverFactory {
                 System.setProperty(
                         "webdriver.ie.driver",
                         new File(DriverFactory.class.getResource("/IEDriverServer.exe").getFile()).getPath());
-                InternetExplorerOptions ieOptions = new InternetExplorerOptions();
+
                 capabilities = DesiredCapabilities.internetExplorer();
                 capabilities.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
                 capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+                capabilities.setCapability("requireWindowFocus", true);
                 return new InternetExplorerDriver(capabilities);
             case "chrome":
             default:

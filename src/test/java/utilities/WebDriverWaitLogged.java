@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class WebDriverWaitLogged {
     private WebDriver driver;
     private WebDriverWait wait;
@@ -38,4 +40,7 @@ public class WebDriverWaitLogged {
         wait.until(ExpectedConditions.urlContains(str));
     }
 
+    public void waitForfElementsVisibility(List<WebElement> elements){
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
 }

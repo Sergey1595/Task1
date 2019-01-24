@@ -36,13 +36,14 @@ public class TestTask1 extends BaseTest{
 
             foundDisplayedNumberOfProduct += resultOfSearchPage.getDisplayedNumberOfProducts();
 
-            //check currency of products
-            currencyOfProducts = mainPage.getCurrenceOfProducts();
-
             //get discount, price, discountPrice
             List<Integer> discounts = resultOfSearchPage.getDiscountsOfAllProducts();
             List<Double> prices = resultOfSearchPage.getPricesOfAllProduct();
             List<Double> regularPrice = resultOfSearchPage.getRegularPricesOfAllProduct();
+
+            //check currency of products (need after get discount, price, discountPrice because need wait of load new products)
+            currencyOfProducts = mainPage.getCurrenceOfProducts();
+
             double calculatedPrice = 0;
             for(int j = 0; j < currencyOfProducts.size(); j++){
                 Assert.assertEquals("$", currencyOfProducts.get(j), "Currency of products were not a dollar");
@@ -61,7 +62,8 @@ public class TestTask1 extends BaseTest{
                     Assert.assertEquals(df.format(prices.get(j)), df.format(regularPrice.get(j) * (1 - ((discounts.get(j).doubleValue()))/100)), "Calculated price after discount and price from page didnt match");
                 }
             }
-            resultOfSearchPage.clickOnNextPageButton();
+            if(resultOfSearchPage.getNumberOfPagesWithProducts() != 1)
+                resultOfSearchPage.clickOnNextPageButton();
         }
 
         //check number of products

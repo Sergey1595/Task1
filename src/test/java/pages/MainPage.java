@@ -40,6 +40,8 @@ public class MainPage extends BasePage {
     @Step("Get currence of all products")
     public List<String> getCurrenceOfProducts(){
         List<String> currenceOfProducts = new LinkedList<>();
+        driverWait.waitForfElementsVisibility(pricesOfProducts);
+
         for(int i = 0; i < pricesOfProducts.size(); i++)
             currenceOfProducts.add(pricesOfProducts.get(i).getText().replaceAll("[0-9, ]", ""));
         return currenceOfProducts;
@@ -47,6 +49,7 @@ public class MainPage extends BasePage {
 
     @Step("Search products by name")
     public void searchProducts(String nameOfProduct){
+        driverWait.waitForElementToBeClickable(searchField);
         searchField.sendKeys(nameOfProduct);
         driverWait.waitForTextToBePresentInElement(nameOfProduct, searchField);
         searchButton.click();

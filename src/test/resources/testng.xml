@@ -18,10 +18,11 @@
         </classes>
     </test>
 
-    <!--<test name="Task1 [internet explorer]" >-->
-        <!--<classes>-->
-            <!--<class name="tests.TestTask1" />-->
-            <!--<parameter name="browser" value="internet explorer"/>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Task1 [internet explorer]" >
+        <parameter name="browser" value="internet explorer"/>
+        <classes>
+            <class name="tests.TestTask1" />
+            <class name="tests.BaseTest" />
+        </classes>
+    </test>
 </suite>
