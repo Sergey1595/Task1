@@ -14,12 +14,11 @@ public abstract class BaseTest {
 
     @BeforeClass
     @Parameters({"selenium.browser", "selenium.grid"})
-    public void setUp(@Optional("chrome")String browser, @Optional("") String gridUrl) {
+    public void setUp(@Optional("chrome") String browser, @Optional("") String gridUrl) {
 
-        if(gridUrl.equalsIgnoreCase("")){
+        if (gridUrl.equalsIgnoreCase("")) {
             driver = DriverFactory.initDriver(browser);
-        }
-        else{
+        } else {
             driver = DriverFactory.initDriver(browser, gridUrl);
         }
 

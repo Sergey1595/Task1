@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,23 +25,24 @@ public class WebDriverWaitLogged {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForTextToBePresentInElement(String text ,WebElement element){
+    public void waitForTextToBePresentInElement(String text, WebElement element) {
         wait.until(ExpectedConditions.textToBePresentInElementValue(element, text));
     }
 
-    public void waitForElementVisibility(WebElement element){
+    public void waitForElementVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForElementAtributeToBe(WebElement element, String atribute, String valueOfAtribute){
+    public void waitForElementAtributeToBe(WebElement element, String atribute, String valueOfAtribute) {
         wait.until(ExpectedConditions.attributeToBe(element, atribute, valueOfAtribute));
     }
 
-    public void waitForUrlContain(String str){
+    public void waitForUrlContain(String str) {
         wait.until(ExpectedConditions.urlContains(str));
     }
 
-    public void waitForfElementsVisibility(List<WebElement> elements){
+    public void waitForfElementsVisibility(List<WebElement> elements) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
+
 }
