@@ -5,6 +5,7 @@ import models.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.blocks.СurrencySettingWebElement;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,14 +13,8 @@ import java.util.List;
 
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//span[@class='expand-more _gray-darker hidden-sm-down']")
-    private WebElement сurrencyButton;
-
     @FindBy(xpath = "//span[@class='price']")
     private List<WebElement> pricesOfProducts;
-
-    @FindBy(xpath = "//li/a[.='USD $']")
-    private WebElement setDollarCurrenceButton;
 
     @FindBy(name = "s")
     private WebElement searchField;
@@ -30,11 +25,15 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='product-price-and-shipping']")
     private List<WebElement> fullPricesOfProducts;
 
+    @FindBy(xpath = "//span[@class='expand-more _gray-darker hidden-sm-down']")
+    private WebElement сurrencyButton;
+
+    @FindBy(xpath = "//li/a[.='USD $']")
+    private WebElement setDollarCurrenceButton;
+
     @Step("Set currence - dollar")
     public void setDollarCurrence() {
-        driverWait.waitForElementToBeClickable(сurrencyButton);
         сurrencyButton.click();
-        driverWait.waitForElementToBeClickable(setDollarCurrenceButton);
         setDollarCurrenceButton.click();
     }
 

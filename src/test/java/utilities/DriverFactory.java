@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,6 +54,8 @@ public class DriverFactory {
                 try {
                     return new RemoteWebDriver(new URL(gridUrl), optionsFirefox);
                 } catch (MalformedURLException ex) {
+                    ex.printStackTrace();
+                } catch (SessionNotCreatedException ex){
                     ex.printStackTrace();
                 }
                 return null;
