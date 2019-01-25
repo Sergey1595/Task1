@@ -2,13 +2,10 @@ package pages;
 
 import io.qameta.allure.Step;
 import models.Product;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ResultOfSearchPage extends BasePage {

@@ -32,6 +32,7 @@ public class MainPage extends BasePage {
 
     @Step("Set currence - dollar")
     public void setDollarCurrence() {
+        driverWait.waitForElementToBeClickable(сurrencyButton);
         сurrencyButton.click();
         driverWait.waitForElementToBeClickable(setDollarCurrenceButton);
         setDollarCurrenceButton.click();
@@ -63,16 +64,16 @@ public class MainPage extends BasePage {
     }
 
     @Step("Check to rigt set currence of all product on page, true if all right")
-    public boolean checkSettingCurrencyProductsOnPage(){
+    public boolean checkSettingCurrencyProductsOnPage() {
         String currencyOfPageSetting = getCurrenceOfPageSetting();
         return checkCurrencyOfProductsOnPage(currencyOfPageSetting);
     }
 
     @Step("Check currency of products on page, true if all right")
-    public boolean checkCurrencyOfProductsOnPage(String currency){
+    public boolean checkCurrencyOfProductsOnPage(String currency) {
         List<String> currencyOfProducts = getCurrenceOfProducts();
-        for(String currencyOfProduct:currencyOfProducts){
-            if(!currency.equals(currencyOfProduct))
+        for (String currencyOfProduct : currencyOfProducts) {
+            if (!currency.equals(currencyOfProduct))
                 return false;
         }
         return true;

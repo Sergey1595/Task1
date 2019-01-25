@@ -5,9 +5,6 @@ import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.ResultOfSearchPage;
 
-import java.text.DecimalFormat;
-import java.util.List;
-
 public class TestTask1 extends BaseTest {
     MainPage mainPage = null;
     ResultOfSearchPage resultOfSearchPage = null;
