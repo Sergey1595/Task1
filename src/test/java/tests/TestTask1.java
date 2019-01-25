@@ -11,7 +11,6 @@ public class TestTask1 extends BaseTest {
 
     @Test
     void compareCurrencyOfProducts() {
-        String dollarSymbvol = "$";
         mainPage = new MainPage();
 
         Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage(mainPage.getCurrenceOfPageSetting()), "Product currency is incorrect");
@@ -22,7 +21,7 @@ public class TestTask1 extends BaseTest {
         resultOfSearchPage = new ResultOfSearchPage();
 
         Assert.assertTrue(resultOfSearchPage.checkWrotePriceOfFound(), "Number of wrote products and displayed products does not match");
-        Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage(dollarSymbvol), "Currency of found products is not a dollar");
+        Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage(mainPage.getCurrenceOfPageSetting()), "Currency of found products is not a dollar");
 
         resultOfSearchPage.setSortFromHightToLowByPrice();
 
