@@ -9,6 +9,12 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class ResultOfSearchPage extends BasePage {
+    private MainPage mainPage;
+
+    public ResultOfSearchPage() {
+        mainPage = new MainPage();
+    }
+
     @FindBy(xpath = "//div[@class='col-md-6 hidden-sm-down total-products']/p")
     private WebElement resultNumberOfProduct;
 
@@ -69,7 +75,6 @@ public class ResultOfSearchPage extends BasePage {
     @Step("Check prices for products on one page, if true all right")
     public boolean checkCalculatedDescountPricesOnPage() {
         DecimalFormat df = new DecimalFormat("########.##");
-        MainPage mainPage = new MainPage();
         List<Product> products = mainPage.getProductsFromPage();
 
         for (Product product : products) {
@@ -83,7 +88,6 @@ public class ResultOfSearchPage extends BasePage {
 
     @Step("Check sort fof higt price to low price, if true all right")
     public boolean checkSortPricesFromHigtToLowOnPage() {
-        MainPage mainPage = new MainPage();
         List<Product> products = mainPage.getProductsFromPage();
 
         for (int i = 0; i < products.size(); i++) {
@@ -104,6 +108,5 @@ public class ResultOfSearchPage extends BasePage {
     public boolean checkWrotePriceOfFound() {
         return getWritedNumberOfProducts() == getDisplayedNumberOfProducts();
     }
-
 
 }

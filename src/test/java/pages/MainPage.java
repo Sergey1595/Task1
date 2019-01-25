@@ -5,7 +5,6 @@ import models.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.blocks.СurrencySettingWebElement;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,7 +24,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='product-price-and-shipping']")
     private List<WebElement> fullPricesOfProducts;
 
-    @FindBy(xpath = "//span[@class='expand-more _gray-darker hidden-sm-down']")
+    @FindBy(xpath = "//div[@id='_desktop_currency_selector']//span[@data-toggle]")
     private WebElement сurrencyButton;
 
     @FindBy(xpath = "//li/a[.='USD $']")
@@ -48,8 +47,8 @@ public class MainPage extends BasePage {
         List<String> currenceOfProducts = new LinkedList<>();
         driverWait.waitForfElementsVisibility(pricesOfProducts);
 
-        for (int i = 0; i < pricesOfProducts.size(); i++)
-            currenceOfProducts.add(pricesOfProducts.get(i).getText().replaceAll("[0-9, ]", ""));
+        for (WebElement priceOfProduct : pricesOfProducts)
+            currenceOfProducts.add(priceOfProduct.getText().replaceAll("[0-9, ]", ""));
         return currenceOfProducts;
     }
 
@@ -60,12 +59,6 @@ public class MainPage extends BasePage {
         driverWait.waitForTextToBePresentInElement(nameOfProduct, searchField);
         searchButton.click();
 
-    }
-
-    @Step("Check to rigt set currence of all product on page, true if all right")
-    public boolean checkSettingCurrencyProductsOnPage() {
-        String currencyOfPageSetting = getCurrenceOfPageSetting();
-        return checkCurrencyOfProductsOnPage(currencyOfPageSetting);
     }
 
     @Step("Check currency of products on page, true if all right")
@@ -89,37 +82,35 @@ public class MainPage extends BasePage {
 
         int numberOfProductsOnPage = fullPricesOfProducts.size();
 
-        int[] discounts = new int[numberOfProductsOnPage];
-        double[] prices = new double[numberOfProductsOnPage];
-        double[] regularPrices = new double[numberOfProductsOnPage];
         List<Product> products = new ArrayList<Product>(numberOfProductsOnPage);
-        List<String> currencys = getCurrenceOfProducts();
+        List<String> currencyes = getCurrenceOfProducts();
 
         for (int i = 0; i < numberOfProductsOnPage; i++) {
-            discounts[i] = 0;
-            prices[i] = 0.0;
-            regularPrices[i] = 0.0;
+            WebElement fullPrice = fullPricesOfProducts.get(i);
+            int discounts = 0;
+            double prices = 0.0;
+            double regularPrices = 0.0;
 
             driverWait.waitForfElementsVisibility(fullPricesOfProducts);
-            driverWait.waitForElementVisibility(fullPricesOfProducts.get(i).findElement(spansInFullPricesOfProducts));
+            driverWait.waitForElementVisibility(fullPrice.findElement(spansInFullPricesOfProducts));
 
-            WebElement price = fullPricesOfProducts.get(i).findElement(priceInFullPricesOfProducts);
+            WebElement price = fullPrice.findElement(priceInFullPricesOfProducts);
 
             //if product have discount
-            if (fullPricesOfProducts.get(i).findElements(By.xpath("./span")).size() > 1) {
-                WebElement discount = fullPricesOfProducts.get(i).findElement(discountPriceFullPricesOfProducts);
-                WebElement regularPrice = fullPricesOfProducts.get(i).findElement(regularPriceFullPricesOfProducts);
-                regularPrices[i] = Double.parseDouble(regularPrice.getText()
+            if (fullPrice.findElements(By.xpath("./span")).size() > 1) {
+                WebElement discount = fullPrice.findElement(discountPriceFullPricesOfProducts);
+                WebElement regularPrice = fullPrice.findElement(regularPriceFullPricesOfProducts);
+                regularPrices = Double.parseDouble(regularPrice.getText()
                         .replaceAll("[^0-9,]", "")
                         .replaceAll("[,]", "."));
-                discounts[i] = (Integer.parseInt(discount.getText().replaceAll("[^0-9]", "")));
+                discounts = (Integer.parseInt(discount.getText().replaceAll("[^0-9]", "")));
             }
 
-            prices[i] = Double.parseDouble(price.getText()
+            prices = Double.parseDouble(price.getText()
                     .replaceAll("[^0-9,]", "")
                     .replaceAll("[,]", "."));
 
-            products.add(new Product(prices[i], regularPrices[i], discounts[i], currencys.get(i)));
+            products.add(new Product(prices, regularPrices, discounts, currencyes.get(i)));
         }
         return products;
     }

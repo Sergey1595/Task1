@@ -3,8 +3,6 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
-import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 import utilities.JavascriptExecutorLogged;
 import utilities.WebDriverWaitLogged;
 import tests.BaseTest;
@@ -19,7 +17,6 @@ public abstract class BasePage {
         driver = BaseTest.driver;
         driverWait = new WebDriverWaitLogged(driver);
         jsExecutor = new JavascriptExecutorLogged(driver);
-        //PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
         PageFactory.initElements(driver, this);
     }
 

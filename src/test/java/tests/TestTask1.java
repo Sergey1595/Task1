@@ -6,14 +6,15 @@ import pages.MainPage;
 import pages.ResultOfSearchPage;
 
 public class TestTask1 extends BaseTest {
-    MainPage mainPage = null;
-    ResultOfSearchPage resultOfSearchPage = null;
+    MainPage mainPage;
+    ResultOfSearchPage resultOfSearchPage;
 
     @Test
     void compareCurrencyOfProducts() {
+        String dollarSymbvol = "$";
         mainPage = new MainPage();
 
-        Assert.assertTrue(mainPage.checkSettingCurrencyProductsOnPage(), "Product currency is incorrect");
+        Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage(mainPage.getCurrenceOfPageSetting()), "Product currency is incorrect");
 
         mainPage.setDollarCurrence();
         mainPage.searchProducts("dress");
@@ -21,7 +22,7 @@ public class TestTask1 extends BaseTest {
         resultOfSearchPage = new ResultOfSearchPage();
 
         Assert.assertTrue(resultOfSearchPage.checkWrotePriceOfFound(), "Number of wrote products and displayed products does not match");
-        Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage("$"), "Currency of found products is not a dollar");
+        Assert.assertTrue(mainPage.checkCurrencyOfProductsOnPage(dollarSymbvol), "Currency of found products is not a dollar");
 
         resultOfSearchPage.setSortFromHightToLowByPrice();
 

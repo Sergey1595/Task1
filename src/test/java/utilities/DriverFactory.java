@@ -12,6 +12,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -55,7 +56,7 @@ public class DriverFactory {
                     return new RemoteWebDriver(new URL(gridUrl), optionsFirefox);
                 } catch (MalformedURLException ex) {
                     ex.printStackTrace();
-                } catch (SessionNotCreatedException ex){
+                } catch (SessionNotCreatedException ex) {
                     ex.printStackTrace();
                 }
                 return null;
