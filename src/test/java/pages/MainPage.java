@@ -84,6 +84,7 @@ public class MainPage extends BasePage {
         By priceInFullPricesOfProducts = By.xpath("./span[@class='price']");
         By discountPriceFullPricesOfProducts = By.xpath("./span[@class='discount-percentage']");
         By regularPriceFullPricesOfProducts = By.xpath("./span[@class='regular-price']");
+
         driverWait.waitForUrlContain("price");
 
         int numberOfProductsOnPage = fullPricesOfProducts.size();

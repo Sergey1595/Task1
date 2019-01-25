@@ -102,10 +102,7 @@ public class ResultOfSearchPage extends BasePage {
 
     @Step("Check wrote number of found products. Compare with displayed products")
     public boolean checkWrotePriceOfFound() {
-        if (getWritedNumberOfProducts() != getDisplayedNumberOfProducts())
-            return false;
-        else
-            return true;
+        return getWritedNumberOfProducts() == getDisplayedNumberOfProducts();
     }
 
 
