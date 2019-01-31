@@ -36,6 +36,16 @@ public class DriverFactory {
                 capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
                 capabilities.setCapability("requireWindowFocus", true);
                 return new InternetExplorerDriver(capabilities);
+            case "firefox-linux":
+                System.setProperty(
+                        "webdriver.gecko.driver",
+                        new File(DriverFactory.class.getResource("/geckodriver").getFile()).getPath());
+                return new FirefoxDriver();
+            case "chrome-linux":
+                System.setProperty(
+                        "webdriver.chrome.driver",
+                        new File(DriverFactory.class.getResource("/chromedriver").getFile()).getPath());
+                return new ChromeDriver();
             case "chrome":
             default:
                 System.setProperty(

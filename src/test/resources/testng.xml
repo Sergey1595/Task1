@@ -2,29 +2,47 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Test of products" verbose="1">
-    <test name="Task1 [Chrome]">
-        <parameter name="selenium.browser" value="chrome"/>
+    <!--<test name="Task1 [Chrome]">-->
+        <!--<parameter name="selenium.browser" value="chrome"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.TestTask1"/>-->
+            <!--<class name="tests.BaseTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="Task1 [Firefox]">-->
+        <!--<parameter name="selenium.browser" value="firefox"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.TestTask1"/>-->
+            <!--<class name="tests.BaseTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="Task1 [internet explorer]">-->
+        <!--<parameter name="selenium.browser" value="internet explorer"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.TestTask1"/>-->
+            <!--<class name="tests.BaseTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="Task1 [Chrome-linux]">
+        <parameter name="selenium.browser" value="chrome-linux"/>
         <classes>
             <class name="tests.TestTask1"/>
             <class name="tests.BaseTest"/>
         </classes>
     </test>
 
-    <test name="Task1 [Firefox]">
-        <parameter name="selenium.browser" value="firefox"/>
+    <test name="Task1 [Firefox-linux]">
+        <parameter name="selenium.browser" value="firefox-linux"/>
         <classes>
             <class name="tests.TestTask1"/>
             <class name="tests.BaseTest"/>
         </classes>
     </test>
 
-    <test name="Task1 [internet explorer]">
-        <parameter name="selenium.browser" value="internet explorer"/>
-        <classes>
-            <class name="tests.TestTask1"/>
-            <class name="tests.BaseTest"/>
-        </classes>
-    </test>
+
 
     <!--<test name="Task1 [Grid][Chrome]">-->
         <!--<parameter name="selenium.browser" value="chrome"/>-->
