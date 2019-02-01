@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -18,8 +19,9 @@ public class BaseTest {
     @BeforeTest
     @Parameters
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        System.setProperty("selenide.browser", "Chrome");
+        //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        //System.setProperty("selenide.browser", "Chrome");
+        Configuration.browser="firefox";
         open("http://prestashop-automation.qatestlab.com.ua/ru/");
     }
 
