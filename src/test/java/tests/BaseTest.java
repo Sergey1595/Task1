@@ -18,6 +18,8 @@ public class BaseTest {
     @BeforeTest
     @Parameters
     public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        System.setProperty("selenide.browser", "Chrome");
         open("http://prestashop-automation.qatestlab.com.ua/ru/");
     }
 
