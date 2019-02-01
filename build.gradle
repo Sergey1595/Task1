@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+configurations {
+    agent
+}
+
+group 'Task2'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo2.maven.org/maven2/" }
+}
+
+test {
+    useTestNG()
+    systemProperty 'allure.results.directory', 'build/allure-results'
+}
+
+dependencies {
+    compile group: 'org.testng', name: 'testng', version: '6.9.10'
+    testCompile 'com.codeborne:selenide:5.1.0'
+    agent "org.aspectj:aspectjweaver:1.8.10"
+    compile "io.qameta.allure:allure-testng:2.0-BETA10"
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
