@@ -19,9 +19,9 @@ public class BaseTest {
     @BeforeTest
     @Parameters
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/sergey/Downloads/chromedriver");
-        System.setProperty("selenide.browser", "Chrome");
-        //Configuration.browser="firefox";
+        //System.setProperty("webdriver.chrome.driver", "/home/sergey/Downloads/chromedriver");
+        //System.setProperty("selenide.browser", "Chrome");
+        Configuration.browser="firefox";
         open("http://prestashop-automation.qatestlab.com.ua/ru/");
     }
 
