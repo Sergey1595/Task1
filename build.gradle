@@ -32,5 +32,5 @@ dependencies {
 }
 
 test.doFirst {
-    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+    //jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
